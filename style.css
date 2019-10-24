@@ -24,12 +24,12 @@ html {
   height: 150px;
   margin: auto;
   font-size: 2rem;
-  background: black;
+  /* background: black; */
 }
 
-/* .face-down {
+.face-down {
   background: black;
-} */
+}
 
 .face-up {
   background: white;

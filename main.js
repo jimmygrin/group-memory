@@ -21,7 +21,7 @@ function readyDeck(deck) {
   deck = shuffle(deck.split(""))
 
   deck.forEach(l => {
-    buttons += `<button>${l.toUpperCase()}</button>`
+    buttons += `<button class="face-down">${l.toUpperCase()}</button>`
   })
   //   deck = shuffle(deck)
   $("#buttons").html(buttons)
@@ -30,10 +30,9 @@ function readyDeck(deck) {
 $(document).ready(function() {
   readyDeck(deck)
 
-  $("#button").on("click", "button", function(e) {
+  $("#buttons").on("click", "button", function(e) {
     e.preventDefault()
-
-    // let card1 = $(this).html()
-    $(this).addClass("face-up")
+    let card1 = $(this).html()
+    $(this).toggleClass("face-up")
   })
 })
