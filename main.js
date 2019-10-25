@@ -29,6 +29,9 @@ function readyDeck(deck) {
 
 $(document).ready(function() {
   readyDeck(deck)
+  function handleGame() {
+    
+  }
   let arrCards = []
 
   // Handling cards
@@ -42,21 +45,24 @@ $(document).ready(function() {
     if (arrCards.length <= 2) {
       $(this).toggleClass("face-up")
     }
-    if (arrCards.length === 2) {
+
+
+    if (arrCards.length === 2) { // if total cards in array are equal to 2 then compare win/lose scenario
       if (arrCards[0].html() != arrCards[1].html()) {
         setTimeout(function() {
           arrCards[0].toggleClass("face-up")
           arrCards[1].toggleClass("face-up")
           arrCards = []
         }, 1200)
+        // boo.play()
       } else {
         arrCards[0].addClass("stay")
         arrCards[1].addClass("stay")
-        var audio = document.querySelector("#applause")
+        
 
         if (arrCards[0].hasClass("stay") && arrCards[1].hasClass("stay")) {
           $(".stay").attr("disabled", true)
-          audio.play()
+          win.play()
         }
         arrCards = []
       }
