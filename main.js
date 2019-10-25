@@ -43,7 +43,7 @@ $(document).ready(function() {
       $(this).toggleClass("face-up")
     }
     if (arrCards.length === 2) {
-      if (arrCards[0][0].innerHTML != arrCards[1][0].innerHTML) {
+      if (arrCards[0].html() != arrCards[1].html()) {
         setTimeout(function() {
           arrCards[0].toggleClass("face-up")
           arrCards[1].toggleClass("face-up")
@@ -52,9 +52,11 @@ $(document).ready(function() {
       } else {
         arrCards[0].addClass("stay")
         arrCards[1].addClass("stay")
+        var audio = document.querySelector("#applause")
 
         if (arrCards[0].hasClass("stay") && arrCards[1].hasClass("stay")) {
           $(".stay").attr("disabled", true)
+          audio.play()
         }
         arrCards = []
       }
