@@ -12,6 +12,7 @@ html {
 
 #card-array {
   display: flex;
+  flex-direction: column;
   width: 80%;
   margin: auto;
 }
@@ -30,4 +31,9 @@ html {
 
 .face-up {
   background: white;
+}
+
+#reset {
+  width: 50px;
+  height: 30px;
 }

@@ -64,7 +64,9 @@ function readyDeck(deck) {
   //   deck = shuffle(deck)
   $("#buttons").html(buttons)
 }
-
+function resetGame() {
+  document.location.reload(true)
+}
 $(document).ready(function() {
   readyDeck(deck)
   handleGame()
