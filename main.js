@@ -29,61 +29,35 @@ function readyDeck(deck) {
 
 $(document).ready(function() {
   readyDeck(deck)
-  let arrCards=[]
-  // let count=0;
-    // setTimeout()
-    // setTimeout(function(){ alert("Hello"); }, 3000);
+  let arrCards = []
 
-    
+  // Handling cards
   $("#buttons").on("click", "button", function(e) {
-    e.preventDefault(
-    )
-     arrCards.push($(this))
-     console.log(arrCards)
-    $(this).toggleClass("face-up")
-    if(arrCards.length==2)
-    {
-      if(arrCards[0][0].innerHTML !=arrCards[1][0].innerHTML)
-      {
-        setTimeout(function(){
+    e.preventDefault()
+
+    // putting values of clicked cards into the array
+    arrCards.push($(this))
+
+    //if 2 cards are active, disables you from selecting other cards
+    if (arrCards.length <= 2) {
+      $(this).toggleClass("face-up")
+    }
+    if (arrCards.length === 2) {
+      if (arrCards[0][0].innerHTML != arrCards[1][0].innerHTML) {
+        setTimeout(function() {
           arrCards[0].toggleClass("face-up")
           arrCards[1].toggleClass("face-up")
-          arrCards=[];
-        },3000)
-        
-       
-        
-      }else
-      {
+          arrCards = []
+        }, 1200)
+      } else {
+        arrCards[0].addClass("stay")
+        arrCards[1].addClass("stay")
 
-        // alert("same")
+        if (arrCards[0].hasClass("stay") && arrCards[1].hasClass("stay")) {
+          $(".stay").attr("disabled", true)
+        }
+        arrCards = []
       }
-      
     }
-
-    
-    // if(count==1)
-    // {
-    //   // alert(count)
-
-
-    //     card2=$(this)  
-        
-    // }else{
-      // count = 0
-    // }if(card1!=card2){
-      // alert("different")
-      
-    //   // card1.toggleClass("face-down")
-    //   card2.toggleClass("face-down")
-
-
-    // }else{
-    //   //same cards
-    // }
-
-
   })
-
-
 })

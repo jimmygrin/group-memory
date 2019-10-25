@@ -12,17 +12,14 @@ html {
 
 #card-array {
   display: flex;
-  flex-wrap: wrap;
-  width: 1200px;
-  border: 1px solid black;
+  width: 80%;
   margin: auto;
-  height: auto;
 }
 
 #buttons button {
   width: 150px;
   height: 150px;
-  margin: auto;
+  margin: 2px;
   font-size: 2rem;
   /* background: black; */
 }
